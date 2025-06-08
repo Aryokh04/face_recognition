@@ -14,4 +14,18 @@ def detect_face(image):
         return image
     else:
         return image
+    
+def capture():
+    cap = cv2.VideoCapture(0)  # Start camera capture
 
+    while True:
+        ret, frame = cap.read()
+        frame = detect_face(frame)
+
+        cv2.imshow('Face Detection', frame)
+
+        if cv2.waitkey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
