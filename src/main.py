@@ -5,7 +5,7 @@ face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fro
 # Creating a function that detects a face based on input image. Using OpenCV´s Haar Cascade algorithm for detecting objects from an image
 def detect_face(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    face = face_classifier.detectMultiScale(gray, 1.1, 7)
+    face = face_classifier.detectMultiScale(gray, 1.4, 5)
     
     # Checking if face is detected, and if so, create a rectangle around face when detecting
     if len(face) > 0:
